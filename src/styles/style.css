@@ -23,6 +23,9 @@ nav {
 ul{
     display: flex;
     flex-direction: row;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     list-style: none;
     gap: 35px;
 }
@@ -42,13 +45,6 @@ a:hover{
 
 nav img{
     width: 3vw;
-}
-
-nav h1{
-    color: #f7f7f7;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .carrossel {
@@ -103,11 +99,9 @@ nav h1{
     display: flex;
     line-height: 28px;
     align-items: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 400px;
   }
   
   .input {
