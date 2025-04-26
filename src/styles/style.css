@@ -151,3 +151,68 @@ nav h1{
     pointer-events: none;
     z-index: 1;
   }
+
+  
+/*-------------------------------------------------------*/
+/*codigo do footer*/
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 1rem 1rem;
+  font-family: Arial, sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* para ficar na frente de tudo */
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 0.5rem;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #1da1f2;
+}
+
+.social-icons a img {
+  width: 28px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2);
+}
