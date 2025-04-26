@@ -16,4 +16,4 @@ let indice = 0;
     atualizarSlide();
   }
 
-  setInterval(avancarSlide, 6500);
+  setInterval(avancarSlide, 8000);
