@@ -1,4 +1,5 @@
-let indice = 0;
+//are do carrossel da tela home
+  let indice = 0;
   const slides = document.getElementById("slides");
   const total = slides.children.length;
 
@@ -17,3 +18,5 @@ let indice = 0;
   }
 
   setInterval(avancarSlide, 8000);
+
+ 
