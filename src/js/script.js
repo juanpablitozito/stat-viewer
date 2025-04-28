@@ -1,7 +1,7 @@
-//are do carrossel da tela home
-  let indice = 0;
-  const slides = document.getElementById("slides");
-  const total = slides.children.length;
+// Variáveis de controle do carrossel
+let indice = 0;  // Índice que vai controlar a posição atual do slide
+const slides = document.getElementById("slides");  // Obtém o elemento que contém os slides
+const total = slides.children.length;  // Total de slides (filhos do elemento slides)
 
 // Função para atualizar o slide, movendo-o para a posição indicada pelo índice
 function atualizarSlide() {
@@ -95,6 +95,36 @@ function voltarFilmes(type) {
   });
 }
 
+// Função executada assim que a página carrega
+window.onload = function() {
+  // Chama a função para buscar filmes assim que a página carregar
+  fetchMovies('launches');   // Busca filmes de Lançamentos
+  fetchMovies('topRated');   // Busca filmes Melhores Avaliados
+  fetchMovies('popular');    // Busca filmes Populares
+};
 
+// Adiciona os eventos de click para os botões de navegação dos filmes
+document.querySelector('.prev-launches').addEventListener('click', () => {
+  voltarFilmes('launches');  // Rola os filmes de lançamentos para a esquerda
+});
 
- 
+document.querySelector('.next-launches').addEventListener('click', () => {
+  avancarFilmes('launches');  // Rola os filmes de lançamentos para a direita
+});
+
+document.querySelector('.prev-popular').addEventListener('click', () => {
+  voltarFilmes('popular');  // Rola os filmes populares para a esquerda
+});
+
+document.querySelector('.next-popular').addEventListener('click', () => {
+  avancarFilmes('popular');  // Rola os filmes populares para a direita
+});
+
+document.querySelector('.prev-topRated').addEventListener('click', () => {
+  voltarFilmes('topRated');  // Rola os filmes mais bem avaliados para a esquerda
+});
+
+document.querySelector('.next-topRated').addEventListener('click', () => {
+  avancarFilmes('topRated');  // Rola os filmes mais bem avaliados para a direita
+});
+
