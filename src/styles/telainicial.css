@@ -36,7 +36,7 @@ margin-top: 10%;
   border-bottom: 2px solid grey;
   width: 50vh;
   height: 40px;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   margin-top: 25px;
   font-size: 18px;
   display: flex;
@@ -156,4 +156,52 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/*responsividade para o celular*/
+@media (min-width: 480px) and (max-width: 768px) {
+  .coluna {
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-top: 10%;
+   ;
+  }
+
+  #place {
+    width: 50vh;
+    letter-spacing: none
+  }
+
+  .btn-acesso {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .google-button-container {
+    margin-top: 20px;
+  
+  }
+
+  .btn-google {
+    width: 50vh;
+   align-items: center;
+    justify-content: center;
+    margin-left: 0%;
+   ;
+  }
+
+#deco-texto {
+  font-size: 14px;
+ 
+}
+ 
+.text{  
+  padding-top: 80px;
+  color: #888888;
+  font-size: 14px; }
+}
+
+fotter {
+  font-size: 12px;
+  padding: 5px 0;
 }
