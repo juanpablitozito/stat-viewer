@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Céu Estrelado com Logo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Estrelas -->
+  <div class="stars"></div>
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="logo_state.png" alt="Logo" class="logo" />
+  </div>
+
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Camada de estrelas animadas */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    radial-gradient(white 0.5px, transparent 1px),
+    radial-gradient(white 0px, transparent 1px);
+  background-size: 100px 100px, 120px 120px;
+  opacity: 0.5;
+  z-index: 0;
+  animation: moveStars 120s linear infinite;
+}
+
+@keyframes moveStars {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-500px, -500px);
+  }
+}
+
+/* Logo no centro */
+.logo-container {
+  z-index: 1;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+  </style>
+</body>
+</html>
