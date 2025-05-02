@@ -58,16 +58,28 @@ function fetchMovies(type) {
         // Para cada filme, cria um card e o adiciona à página
         movies.forEach(filme => {
           const card = document.createElement('div');
-          card.classList.add('card-movie');  // Adiciona uma classe de estilo ao card
-  
-          const posterUrl = imgBase + filme.poster_path;  // Monta a URL da imagem do cartaz do filme
-          card.innerHTML = `  <!-- Exibe o poster e título do filme -->
+          card.classList.add('card-movie');
+        
+          const posterUrl = imgBase + filme.poster_path;
+          card.innerHTML = `
             <img src="${posterUrl}" alt="${filme.title}">
-            <h3>${filme.title}</h3>
           `;
-  
-          row.appendChild(card);  // Adiciona o card de filme à área de filmes
+        
+          // Ao clicar no card, busca detalhes do filme
+          card.addEventListener('click', () => {
+            fetch(`https://api.themoviedb.org/3/movie/${filme.id}?api_key=${apiKey}&language=pt-BR`)
+              .then(response => response.json())
+              .then(details => {
+                openModal(details);
+              })
+              .catch(error => {
+                console.error('Erro ao buscar detalhes do filme:', error);
+              });
+          });
+        
+          row.appendChild(card);
         });
+        
       } else {
         console.log('Nenhum filme encontrado para esta categoria.');  // Caso não haja filmes
       }
@@ -76,6 +88,68 @@ function fetchMovies(type) {
       console.error('Erro ao buscar filmes:', error);  // Captura qualquer erro da requisição
     });
 }
+
+const modal = document.getElementById('movieModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalOverview = document.getElementById('modalOverview');
+const modalRating = document.getElementById('modalRating');
+const modalRelease = document.getElementById('modalRelease');
+const closeModalBtn = document.getElementById('closeModal');
+
+
+async function openModal(details) {
+  modalTitle.textContent = details.title;
+  modalOverview.textContent = details.overview || 'Sem sinopse disponível.';
+  modalRating.textContent = `Avaliação: ${details.vote_average?.toFixed(1) || 'N/A'}/10`;
+  modalRelease.textContent = `Lançamento: ${details.release_date || 'Desconhecido'}`;
+  modal.classList.remove('hidden');
+
+  // Buscar e exibir trailer
+  const trailerKey = await buscarTrailer(details.id);
+  const modalTrailer = document.getElementById('modalTrailer');
+  
+  if (trailerKey) {
+    modalTrailer.innerHTML = `
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailerKey}" 
+        title="Trailer de ${details.title}" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>
+    `;
+  } else {
+    modalTrailer.innerHTML = `<p style="text-align:center;">Trailer não disponível.</p>`;
+  }
+}
+
+async function buscarTrailer(movieId) {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=pt-BR`;
+
+  try {
+    const resposta = await fetch(url);
+    const dados = await resposta.json();
+
+    const trailer = dados.results.find(video =>
+      video.site === "YouTube" && video.type === "Trailer"
+    );
+
+    return trailer ? trailer.key : null;
+
+  } catch (erro) {
+    console.error("Erro ao buscar trailer:", erro);
+    return null;
+  }
+}
+
+closeModalBtn.addEventListener('click', () => {
+  modal.classList.add('hidden');
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.add('hidden');
+  }
+});
+
+
 
 // Função para rolar os filmes lateralmente (para a direita)
 function avancarFilmes(type) {

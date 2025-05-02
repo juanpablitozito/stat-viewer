@@ -216,11 +216,12 @@ h2 {
   border-radius: 8px;  /* Bordas arredondadas */
   object-fit: cover;  /* Preenche o espaço do card com a imagem */
   object-position: center;  /* Centraliza a imagem */
+  cursor: pointer;
 }
 
 /* Esconde o título dentro do card de filme */
 .card-movie h3 {
-  display: none;  /* Esconde o título */
+  display: none; 
 }
 
 /* Estilo para os botões de navegação */
@@ -260,6 +261,43 @@ button:hover {
 /* Estilo para o botão de "Próximo" no carrossel */
 .next-launches, .next-popular, .next-topRated {
   right: 10px;  /* Posição à direita */
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #1f1f1f;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+  max-height: 800px;
+  height: 100%;
+  width: 100%;
+  color: #f7f7f7;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Ajustes para telas pequenas */
