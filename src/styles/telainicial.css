@@ -71,7 +71,6 @@ body::before {
   border-bottom: 2px solid grey;
   width: 100%;
   height: 40px;
-  letter-spacing: 5px;
   margin-top: 25px;
   font-size: 18px;
   color: #fff;
@@ -151,6 +150,7 @@ body::before {
 
 .text {
   padding-top: 80px;
+  font-size: 15px;
   color: #888888;
 }
 
