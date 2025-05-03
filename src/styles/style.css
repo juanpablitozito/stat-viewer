@@ -14,6 +14,10 @@ body {
 
 /* Estilo para a barra de navegação */
 nav {
+  position: fixed;
+  z-index: 10001;
+  width: 100%;
+  top: 0;
   height: auto;  /* Altura automática */
   background-color: rgb(77, 0, 0);  /* Cor de fundo da barra de navegação */
   display: flex;  /* Usando flexbox para organizar os itens */
@@ -58,14 +62,12 @@ nav img {
   line-height: 28px;  /* Alinha o texto verticalmente */
   align-items: center;  /* Alinha os itens verticalmente */
   position: relative;  /* Posição relativa para o ícone de pesquisa */
-  width: 100%;  /* Largura 100% */
-  max-width: 400px;  /* Largura máxima de 400px */
 }
 
 /* Estilo do campo de input da pesquisa */
 .input {
   font-family: "DM Sans", sans-serif;  /* Fonte do campo de pesquisa */
-  width: 100%;  /* Largura total disponível */
+  width: 20vw;
   height: 45px;  /* Altura do campo */
   padding-left: 2.5rem;  /* Espaçamento interno à esquerda */
   box-shadow: 0 0 0 1.5px #2b2c37, 0 0 25px -17px #000;  /* Sombra */
@@ -115,7 +117,7 @@ nav img {
   position: relative;  /* Posição relativa */
   width: 95vw;  /* Largura do carrossel */
   height: 600px;  /* Altura do carrossel */
-  margin: 40px auto;  /* Margem automática para centralizar */
+  margin: 100px auto;  /* Margem automática para centralizar */
   overflow: hidden;  /* Oculta qualquer conteúdo fora da área visível */
   border-radius: 10px;  /* Bordas arredondadas */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Sombra para o carrossel */
@@ -322,6 +324,31 @@ button:hover {
 .hidden {
   display: none;
 }
+
+/* Caixa de Pesquisa */
+
+.search-overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 999;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
 
 /* Ajustes para telas pequenas */
 @media (max-width: 768px) {

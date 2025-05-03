@@ -1,3 +1,5 @@
+
+
 // Variáveis de controle do carrossel
 let indice = 0;  // Índice que vai controlar a posição atual do slide
 const slides = document.getElementById("slides");  // Obtém o elemento que contém os slides
@@ -26,6 +28,88 @@ setInterval(avancarSlide, 10000);
 // Definindo a chave da API e o base URL para imagens
 const apiKey = '667f29be2c2b3a1826a0467ad42f291b';
 const imgBase = 'https://image.tmdb.org/t/p/w500';
+
+// Buscar pela barra de pesquisa
+
+  const searchInput = document.getElementById('query');
+  const overlay = document.getElementById('searchResultsOverlay');
+  const resultsContainer = document.getElementById('searchResults');
+
+  function showOverlay() {
+    overlay.classList.remove('hidden');
+  }
+
+  function hideOverlay() {
+    overlay.classList.add('hidden');
+  }
+
+  function searchMovies(query) {
+    if (!query.trim()) {
+      hideOverlay();
+      return;
+    }
+
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=pt-BR&query=${encodeURIComponent(query)}`)
+      .then(response => response.json())
+      .then(data => {
+        resultsContainer.innerHTML = '';
+        if (data.results.length > 0) {
+          data.results.forEach(movie => {
+            const poster = movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+              : 'https://via.placeholder.com/150x225?text=Sem+Imagem';
+
+            const card = document.createElement('div');
+            card.classList.add('card-movie');
+            card.innerHTML = `
+              <img src="${poster}" alt="${movie.title}" />
+              <p>${movie.title}</p>
+            `;
+             // Adiciona evento de clique para abrir o modal e fechar o overlay
+  card.addEventListener('click', () => {
+    hideOverlay(); // Fecha o overlay
+
+    fetch(`https://api.themoviedb.org/3/movie/${movie.id}?api_key=${apiKey}&language=pt-BR`)
+      .then(response => response.json())
+      .then(details => {
+        openModal(details); // Abre o modal com os detalhes do filme
+      })
+      .catch(error => {
+        console.error('Erro ao buscar detalhes do filme da busca:', error);
+      });
+  });
+
+            resultsContainer.appendChild(card);
+          });
+          showOverlay();
+        } else {
+          resultsContainer.innerHTML = '<p style="color: white;">Nenhum resultado encontrado.</p>';
+          showOverlay();
+        }
+      })
+      .catch(err => {
+        console.error('Erro na busca:', err);
+      });
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value;
+    searchMovies(query);
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      searchMovies(searchInput.value);
+    }
+  });
+
+  // Clique fora da área fecha o overlay
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      hideOverlay();
+    }
+  });
 
 // Função para buscar filmes de cada categoria (Lançamentos, Populares, Melhores Avaliados)
 function fetchMovies(type) {

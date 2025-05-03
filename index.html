@@ -27,87 +27,97 @@
                     <li><a href="#melhoravaliados">Melhor Avaliados</a></li>
                 </ul>
 
-                <div class="group">
-                  <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
-                    <g>
-                      <path
-                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
-                      ></path>
-                    </g>
-                  </svg>
+                <div class="search-container">
+                  <div class="group">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon">
+                      <g>
+                        <path
+                          d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                        ></path>
+                      </g>
+                    </svg>
+                    <input
+                      id="query"
+                      class="input"
+                      type="search"
+                      placeholder="Buscar Filmes..."
+                      name="searchbar"
+                    
+                    />
+                  </div>
+                </div>
                 
-                  <input
-                    id="query"
-                    class="input"
-                    type="search"
-                    placeholder="Search..."
-                    name="searchbar"
-                  />
+                <!-- Overlay para resultados da busca -->
+                <div id="searchResultsOverlay" class="search-overlay hidden">
+                  <div id="searchResults" class="search-results"></div>
                 </div>
             </nav>
 
         </section>
 
     </header>
+    <main>
 
-    <section>
+      <section>
         <div class="carrossel">
-            <div class="slides" id="slides">
-              <img src="assets/img/sorria-2-sequencia-do-terror-de-sucesso-de-2022-estreia-nos-cinemas.jpg" alt="Filme 1">
-              <img src="assets/img/minecraft.jpg" alt="Filme 2">
-              <img src="assets/img/deadpool_wolverine_poster.jpg" alt="Filme 3">
-            </div>
+          <div class="slides" id="slides">
+            <img src="assets/img/sorria-2-sequencia-do-terror-de-sucesso-de-2022-estreia-nos-cinemas.jpg" alt="Filme 1">
+            <img src="assets/img/minecraft.jpg" alt="Filme 2">
+            <img src="assets/img/deadpool_wolverine_poster.jpg" alt="Filme 3">
+          </div>
           
-            <button class="btn anterior" onclick="voltarSlide()">‹</button>
-            <button class="btn proximo" onclick="avancarSlide()">›</button>
-          </div>
-        </section>
-
-        <section>
-          <h2>Lançamentos</h2>
-          <div class="movie-section">
-            <button class="prev-launches">‹</button>
-  	          <div id="launches" class="movie-row"></div>
-            <button class="next-launches">›</button>
-          </div>
-        </section>
-        
-        <section>
-          <h2>Populares</h2>
-          <div class="movie-section">
-            <button class="prev-popular">‹</button>
-          <div id="popular" class="movie-row"></div>
-            <button class="next-popular">›</button>
-          </div>
-        </section>
-        
-        <section>
-          <h2>Melhores Avaliados</h2>
-          <div class="movie-section">
-            <button class="prev-topRated">‹</button>
-          <div id="topRated" class="movie-row"></div>
-            <button class="next-topRated">›</button>
-          </div>
-        </section>
-
-   
-    <footer class="footer">
-
-    </footer>
-    
-    <div id="movieModal" class="modal hidden">
-      <div class="modal-content">
-        <span id="closeModal" class="close-button">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <div id="modalTrailer" style="margin-top: 20px;">
-          <!-- O trailer será inserido aqui via JavaScript -->
+          <button class="btn anterior" onclick="voltarSlide()">‹</button>
+          <button class="btn proximo" onclick="avancarSlide()">›</button>
         </div>
-        <p id="modalOverview"></p>
-        <p id="modalRating"></p>
-        <p id="modalRelease"></p>
+      </section>
+      
+      <section>
+        <h2>Lançamentos</h2>
+        <div class="movie-section">
+          <button class="prev-launches">‹</button>
+          <div id="launches" class="movie-row"></div>
+          <button class="next-launches">›</button>
+        </div>
+      </section>
+      
+      <section>
+        <h2>Populares</h2>
+        <div class="movie-section">
+          <button class="prev-popular">‹</button>
+          <div id="popular" class="movie-row"></div>
+          <button class="next-popular">›</button>
+        </div>
+      </section>
+      
+      <section>
+        <h2>Melhores Avaliados</h2>
+        <div class="movie-section">
+          <button class="prev-topRated">‹</button>
+          <div id="topRated" class="movie-row"></div>
+          <button class="next-topRated">›</button>
+        </div>
+      </section>
+      
+    </main>
+      
+      <footer class="footer">
         
+      </footer>
+      
+      <!-- Caixa de avaliaçao -->
+      <div id="movieModal" class="modal hidden">
+        <div class="modal-content">
+          <span id="closeModal" class="close-button">&times;</span>
+          <h2 id="modalTitle"></h2>
+          <div id="modalTrailer" style="margin-top: 20px;">
+            <!-- O trailer será inserido aqui via JavaScript -->
+          </div>
+          <p id="modalOverview"></p>
+          <p id="modalRating"></p>
+          <p id="modalRelease"></p>
+          
+        </div>
       </div>
-    </div>
 
 
 
