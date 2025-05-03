@@ -253,12 +253,12 @@ button:hover {
   position: relative;  /* Posição relativa para os botões */
 }
 
-/* Estilo para o botão de "Anterior" no carrossel */
+/* Estilo para o botão de "Anterior" nos filmes */
 .prev-launches, .prev-popular, .prev-topRated {
   left: 10px;  /* Posição à esquerda */
 }
 
-/* Estilo para o botão de "Próximo" no carrossel */
+/* Estilo para o botão de "Próximo" nos filmes */
 .next-launches, .next-popular, .next-topRated {
   right: 10px;  /* Posição à direita */
 }
@@ -274,6 +274,29 @@ button:hover {
   justify-content: center;
   align-items: center;
   z-index: 999;
+}
+
+#modalRating{
+  position: absolute;
+  top: 65px;
+  right: 100px;
+}
+
+#modalTrailer{
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
+#modalOverview{
+  position: absolute;
+  top: 20%;
+  width: 40%;
+}
+
+#modalRelease{
+  position: relative;
+  left: 50%;
 }
 
 .modal-content {

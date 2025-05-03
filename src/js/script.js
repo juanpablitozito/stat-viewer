@@ -100,7 +100,12 @@ const closeModalBtn = document.getElementById('closeModal');
 async function openModal(details) {
   modalTitle.textContent = details.title;
   modalOverview.textContent = details.overview || 'Sem sinopse disponível.';
-  modalRating.textContent = `Avaliação: ${details.vote_average?.toFixed(1) || 'N/A'}/10`;
+  modalRating.innerHTML = `
+  <span style="display: inline-flex; align-items: center;">
+    <img src="/assets/img/logo_state.png" style="height: 30px; vertical-align: middle; margin-right: 6px;">
+    ${details.vote_average?.toFixed(1) || 'N/A'}/10
+  </span>
+`;
   modalRelease.textContent = `Lançamento: ${details.release_date || 'Desconhecido'}`;
   modal.classList.remove('hidden');
 
@@ -110,7 +115,7 @@ async function openModal(details) {
   
   if (trailerKey) {
     modalTrailer.innerHTML = `
-      <iframe width="100%" height="400" src="https://www.youtube.com/embed/${trailerKey}" 
+      <iframe width="50%" height="200px" src="https://www.youtube.com/embed/${trailerKey}" 
         title="Trailer de ${details.title}" frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen></iframe>
