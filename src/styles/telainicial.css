@@ -19,6 +19,7 @@ body::before {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  z-index: 1001;
 
 }
 
@@ -29,11 +30,11 @@ body::before {
   width: 200%;
   height: 200%;
   background-image: 
-    radial-gradient(white 2px, transparent 1px),
-    radial-gradient(white 2px, transparent 1px);
+    radial-gradient(rgb(243, 227, 0) 2px, transparent 1px),
+    radial-gradient(rgb(255, 255, 255) 2px, transparent 1px);
   background-size: 100px 100px, 160px 160px;
   opacity: 0.5;
-  z-index: 0;
+  z-index: 1000;
   animation: moveStars 120s linear infinite;
 }
 
@@ -47,6 +48,11 @@ body::before {
 }
 
 .coluna {
+  background-image: url(/assets/img/logo_state.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+  background-position: center;
+  background-attachment: fixed; 
  
   overflow: hidden;
   position: relative;
@@ -83,6 +89,12 @@ body::before {
   color: #ffffff;
 }
 
+.text-h2 {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
 #deco-texto:hover {
   text-decoration: underline;
   color: #990808;
@@ -107,7 +119,7 @@ body::before {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   border: none;
-  margin-top: 30px;
+  margin-top: 90px;
 }
 
 .btn-acesso:hover {
@@ -154,36 +166,21 @@ body::before {
   color: #888888;
 }
 
-footer {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-  position: relative;
-  bottom: 0;
-  margin-top: 18%;
-}
 
-footer a {
-  color: #00aaff;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Responsividade 
-@media (max-width: 768px) {
+ /*Responsividade */
+@media (max-width: 414px) {
   .coluna {
-    margin: 10% auto;
-    width: 90%;
-    padding: 30px;
+    margin-top: 40%;
+  background-image: url(/assets/img/logo_state.png);
+  background-repeat: no-repeat;   
+
+    padding: 20px;
+    max-width: 90%;
+
+   
   }
 
+  }	
   .input-campo {
     width: 100%;
     letter-spacing: normal;
@@ -209,9 +206,12 @@ footer a:hover {
     padding: 5px;
   }
 
-  body {
-    background-image: url(/assets/img/avatarinicial.png);
-    background-size: cover;
+ 
+
+  @media (max-width: 480px) {
+    .footer {
+      font-size: 12px;
+      padding: 10px;
+    }
   }
-}
-*/
+
