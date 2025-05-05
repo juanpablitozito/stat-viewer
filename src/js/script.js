@@ -205,7 +205,7 @@ async function openModal(details) {
         allowfullscreen></iframe>
     `;
   } else {
-    modalTrailer.innerHTML = `<p style="text-align:center;">Trailer não disponível.</p>`;
+    modalTrailer.innerHTML = `<p style="text-align:center; padding-bottom: 180px">Trailer não disponível.</p>`;
   }
 }
 
