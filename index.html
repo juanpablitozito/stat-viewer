@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/assets/img/logo_state.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/img/logo_stat.png" type="image/x-icon">
     <title>Stat Viewer</title>
     <link rel="stylesheet" href="src/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
             
             <nav id="home">
 
-                <a href="#home"><img src="assets/img/logo_state.png" alt=""></a>
+                <a href="#home"><img src="assets/img/logo_stat.png" alt=""></a>
 
                 <ul>
                  <a href="/src/pages/telainicial.html"><input type="button" value="login" href="/src/pages/telainicial.html"></a
@@ -106,15 +106,27 @@
       
       <!-- Caixa de avaliaçao -->
       <div id="movieModal" class="modal hidden">
+        <div class="modal-container">
+        <div class="modal-image" id="modalBgImage"></div>
         <div class="modal-content">
           <span id="closeModal" class="close-button">&times;</span>
-          <h2 id="modalTitle"></h2>
-          <div id="modalTrailer" style="margin-top: 20px;">
+
+          <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+            <p id="modalRating"></p>
+            <p id="modalRelease"></p>
+          </div>
+
+          <hr>
+
+          <h5> Sinopse:</h5>
+
+            <p id="modalOverview"></p>
+
+          
+          <div id="modalTrailer">
             <!-- O trailer será inserido aqui via JavaScript -->
           </div>
-          <p id="modalOverview"></p>
-          <p id="modalRating"></p>
-          <p id="modalRelease"></p>
 
           <div class="review">
             <h2>Faça sua análise!</h2>
@@ -123,7 +135,7 @@
           </div>
         </div>
       </div>
-
+    </div>
 
 
 

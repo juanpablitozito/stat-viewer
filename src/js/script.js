@@ -186,12 +186,22 @@ async function openModal(details) {
   modalOverview.textContent = details.overview || 'Sem sinopse disponível.';
   modalRating.innerHTML = `
   <span style="display: inline-flex; align-items: center;">
-    <img src="/assets/img/logo_state.png" style="height: 30px; vertical-align: middle; margin-right: 6px;">
+    <img src="/assets/img/logo_stat.png" style="height: 30px; vertical-align: middle; margin-right: 6px;">
     ${details.vote_average?.toFixed(1) || 'N/A'}/10
   </span>
 `;
-  modalRelease.textContent = `Lançamento: ${details.release_date || 'Desconhecido'}`;
+  modalRelease.textContent = `${details.release_date || 'Desconhecido'}`;
   modal.classList.remove('hidden');
+
+
+  const modalBgImage = document.getElementById('modalBgImage');
+const backdrop = details.backdrop_path || details.poster_path;
+
+if (backdrop) {
+  modalBgImage.style.backgroundImage = `url(https://image.tmdb.org/t/p/w1280${backdrop})`;
+} else {
+  modalBgImage.style.backgroundImage = 'none';
+}
 
   // Buscar e exibir trailer
   const trailerKey = await buscarTrailer(details.id);
@@ -199,10 +209,9 @@ async function openModal(details) {
   
   if (trailerKey) {
     modalTrailer.innerHTML = `
-      <iframe width="50%" height="200px" src="https://www.youtube.com/embed/${trailerKey}" 
-        title="Trailer de ${details.title}" frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>
+       <a href="https://www.youtube.com/embed/${trailerKey}"  
+        title="Trailer de ${details.title}"> <button class="btn-trailer"> Assistir trailer </button>
+      </a> 
     `;
   } else {
     modalTrailer.innerHTML = `<p style="text-align:center; padding-bottom: 180px">Trailer não disponível.</p>`;
