@@ -227,7 +227,7 @@ h2 {
 }
 
 /* Estilo para os botões de navegação */
-button {
+section button {
   background-color: rgba(0, 0, 0, 0.5);  /* Cor de fundo semitransparente */
   color: white;  /* Cor do texto */
   border: none;  /* Remove as bordas padrão */
@@ -246,7 +246,7 @@ button {
 }
 
 /* Efeito de hover nos botões */
-button:hover {
+section button:hover {
   background-color: rgba(0, 0, 0, 0.9);  /* Altera a cor do fundo ao passar o mouse */
 }
 
@@ -275,6 +275,10 @@ button:hover {
   z-index: 9999;
 }
 
+hr{
+  margin: 20px 0;
+}
+
 .modal-container {
   display: flex;
   width: 90%;
@@ -301,30 +305,39 @@ button:hover {
 
 #modalRating{
   position: absolute;
-  top: 65px;
+  top: 35px;
   right: 100px;
 }
 
 .btn-trailer{
+  padding: 10px 20px;
   background-color: orange;
   border: 1px solid white;
   border-radius: 1px;
 }
 
+.btn-trailer:hover{
+  background-color: rgb(187, 124, 6);
+  border: 1px solid white;
+  cursor: pointer;
+}
+
 h5{
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
   padding: 0;
+}
+
+.sinopse{
+  margin: 20px 0;
 }
 
 #modalOverview{
   font-family:'Montserrat', sans-serif;
   color: #a8a8a8;
-  width: 40%;
-  margin: 20px;
+  width: 100%;
+  margin: 0;
 }
-
-
 
 .modal-content {
   background-color: #1f1f1f;
@@ -336,41 +349,6 @@ h5{
   width: 100%;
   color: #f7f7f7;
   position: relative;
-}
-
-.review{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-#review-text{
-  position: relative;
-  right: 55%;
-  width: 18vw;
-  height: 30vh;
-  font-size: 16px;
-  line-height: 2.0;
-  background: transparent;
-  border: 1px solid #a8a8a8;
-  border-radius: 5px;
-  resize: none;
-  box-shadow: none;
-  color: #f7f7f7;
-}
-
-textarea::placeholder{
-  vertical-align: top;
-  display: block;
-  line-height: 1.5;
-  font-family: sans-serif;
-  padding: 5px;
-}
-
-textarea:focus{
-  color: white;
-  box-shadow: none;
-  border: 1px solid #a8a8a8;
 }
 
 .close-button {
