@@ -251,17 +251,17 @@ section button:hover {
 }
 
 /* Estilos específicos para os carrosséis de filmes */
-#launches, #popular, #topRated {
+#launches, #popular, #topRated, #acao, #comedia, #terror, #suspense, #romance, #anime {
   position: relative;  /* Posição relativa para os botões */
 }
 
 /* Estilo para o botão de "Anterior" nos filmes */
-.prev-launches, .prev-popular, .prev-topRated {
+.prev-launches, .prev-popular, .prev-topRated, .prev-acao, .prev-comedia, .prev-terror, .prev-suspense, .prev-romance, .prev-anime {
   left: 10px;  /* Posição à esquerda */
 }
 
 /* Estilo para o botão de "Próximo" nos filmes */
-.next-launches, .next-popular, .next-topRated {
+.next-launches, .next-popular, .next-topRated, .next-acao, .next-comedia, .next-terror, .next-suspense, .next-romance, .next-anime {
   right: 10px;  /* Posição à direita */
 }
 

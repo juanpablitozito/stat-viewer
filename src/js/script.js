@@ -111,45 +111,52 @@ const imgBase = 'https://image.tmdb.org/t/p/w500';
     }
   });
 
-// Função para buscar filmes de cada categoria (Lançamentos, Populares, Melhores Avaliados)
 function fetchMovies(type) {
-  const row = document.getElementById(type);  // Obtém o container específico para cada tipo de filme
-  row.innerHTML = '';  // Limpa a área de filmes antes de adicionar novos filmes
-  
+  const row = document.getElementById(type);  // Container específico de cada tipo
+  row.innerHTML = '';  // Limpa antes de carregar
+
   let url = '';  // URL da API
-  
-  // Define a URL da API dependendo do tipo de filmes
+
+  // Define a URL conforme o tipo
   if (type === 'launches') {
     url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=pt-BR&page=1`;
   } else if (type === 'topRated') {
     url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=pt-BR&page=1`;
   } else if (type === 'popular') {
     url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR&page=1`;
-  }
-  
-  console.log(`Buscando filmes para: ${url}`);  // Exibe a URL que será chamada para depuração
-  
-  // Realiza a requisição para a API
+  } else if (type === 'acao') {
+    url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=pt-BR&with_genres=28&page=1`;
+  } else if (type === 'comedia') {
+    url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=pt-BR&with_genres=35&page=1`;
+  } else if (type === 'terror') {
+    url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=pt-BR&with_genres=27&page=1`;
+  } else if (type === 'suspense') {
+    url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=pt-BR&with_genres=53&page=1`;
+  } else if (type === 'romance') {
+    url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=pt-BR&with_genres=10749&page=1`;
+  } else if (type === 'anime') {
+  url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=pt-BR&with_genres=16&with_original_language=ja&page=1`;
+}
+
+  console.log(`Buscando filmes para: ${url}`);
+
   fetch(url)
-    .then(response => response.json())  // Converte a resposta para JSON
+    .then(response => response.json())
     .then(data => {
-      console.log('Dados recebidos da API:', data);  // Exibe os dados recebidos da API
-      
-      // Se a resposta contiver resultados de filmes
+      console.log('Dados recebidos da API:', data);
+
       if (data.results && data.results.length > 0) {
-        const movies = data.results;  // Acessa os resultados dos filmes
-        
-        // Para cada filme, cria um card e o adiciona à página
+        const movies = data.results;
+
         movies.forEach(filme => {
           const card = document.createElement('div');
           card.classList.add('card-movie');
-        
+
           const posterUrl = imgBase + filme.poster_path;
           card.innerHTML = `
             <img src="${posterUrl}" alt="${filme.title}">
           `;
-        
-          // Ao clicar no card, busca detalhes do filme
+
           card.addEventListener('click', () => {
             fetch(`https://api.themoviedb.org/3/movie/${filme.id}?api_key=${apiKey}&language=pt-BR`)
               .then(response => response.json())
@@ -160,18 +167,31 @@ function fetchMovies(type) {
                 console.error('Erro ao buscar detalhes do filme:', error);
               });
           });
-        
+
           row.appendChild(card);
         });
-        
       } else {
-        console.log('Nenhum filme encontrado para esta categoria.');  // Caso não haja filmes
+        console.log('Nenhum filme encontrado para esta categoria.');
       }
     })
     .catch(error => {
-      console.error('Erro ao buscar filmes:', error);  // Captura qualquer erro da requisição
+      console.error('Erro ao buscar filmes:', error);
     });
 }
+
+// Chamada automática das categorias ao carregar a página
+window.onload = function() {
+  fetchMovies('launches');
+  fetchMovies('topRated');
+  fetchMovies('popular');
+  fetchMovies('acao');
+  fetchMovies('comedia');
+  fetchMovies('terror');
+  fetchMovies('suspense');
+  fetchMovies('romance');
+  fetchMovies('anime');
+};
+
 
 const modal = document.getElementById('movieModal');
 const modalTitle = document.getElementById('modalTitle');
@@ -270,9 +290,16 @@ function voltarFilmes(type) {
 // Função executada assim que a página carrega
 window.onload = function() {
   // Chama a função para buscar filmes assim que a página carregar
-  fetchMovies('launches');   // Busca filmes de Lançamentos
-  fetchMovies('topRated');   // Busca filmes Melhores Avaliados
-  fetchMovies('popular');    // Busca filmes Populares
+   // Buscar todos os tipos de filmes
+  fetchMovies('launches');
+  fetchMovies('topRated');
+  fetchMovies('popular');
+  fetchMovies('acao');
+  fetchMovies('comedia');
+  fetchMovies('terror');
+  fetchMovies('suspense');
+  fetchMovies('romance');
+  fetchMovies('anime');
 };
 
 // Adiciona os eventos de click para os botões de navegação dos filmes
@@ -298,5 +325,47 @@ document.querySelector('.prev-topRated').addEventListener('click', () => {
 
 document.querySelector('.next-topRated').addEventListener('click', () => {
   avancarFilmes('topRated');  // Rola os filmes mais bem avaliados para a direita
+});
+
+document.querySelector('.prev-acao').addEventListener('click', () => {
+  voltarFilmes('acao');
+});
+document.querySelector('.next-acao').addEventListener('click', () => {
+  avancarFilmes('acao');
+});
+
+document.querySelector('.prev-comedia').addEventListener('click', () => {
+  voltarFilmes('comedia');
+});
+document.querySelector('.next-comedia').addEventListener('click', () => {
+  avancarFilmes('comedia');
+});
+
+document.querySelector('.prev-terror').addEventListener('click', () => {
+  voltarFilmes('terror');
+});
+document.querySelector('.next-terror').addEventListener('click', () => {
+  avancarFilmes('terror');
+});
+
+document.querySelector('.prev-suspense').addEventListener('click', () => {
+  voltarFilmes('suspense');
+});
+document.querySelector('.next-suspense').addEventListener('click', () => {
+  avancarFilmes('suspense');
+});
+
+document.querySelector('.prev-romance').addEventListener('click', () => {
+  voltarFilmes('romance');
+});
+document.querySelector('.next-romance').addEventListener('click', () => {
+  avancarFilmes('romance');
+});
+
+document.querySelector('.prev-anime').addEventListener('click', () => {
+  voltarFilmes('anime');
+});
+document.querySelector('.next-anime').addEventListener('click', () => {
+  avancarFilmes('anime');
 });
 
