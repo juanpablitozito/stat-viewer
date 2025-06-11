@@ -388,13 +388,3 @@ h5{
 }
 
 
-/* Ajustes para telas pequenas */
-@media (max-width: 768px) {
-  button {
-    padding: 8px 16px;  /* Reduz o tamanho do botão */
-    font-size: 14px;  /* Reduz o tamanho da fonte */
-  }
-  .movie-row {
-    margin: 0 20px;  /* Ajusta as margens para telas pequenas */
-  }
-}
