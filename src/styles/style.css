@@ -387,4 +387,175 @@ h5{
   display: none;
 }
 
+/* Responsividade
+
+
+
+*/
+
+@media (max-width: 767px) {
+  /* Ajustes na barra de navegação */
+  nav {
+    flex-direction: column;
+    padding: 10px;
+    height: auto;
+  }
+
+  nav img {
+    width: 40px;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    position: static;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  /* Ajustes no carrossel */
+  .carrossel {
+    height: 200px;
+    margin: 70px auto 20px;
+  }
+
+  /* Ajustes nas seções de filmes */
+  h2 {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+
+  .movie-section {
+    margin: 0;
+  }
+
+  .movie-row {
+    margin: 0 15px;
+    scroll-padding: 0 15px;
+  }
+
+  .card-movie {
+    width: 150px;
+    height: 250px;
+  }
+
+  .card-movie img {
+    height: 200px;
+  }
+
+  section button {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  /* Modal */
+  .modal-container {
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-image {
+    flex: 0 0 200px;
+    min-height: 200px;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  /* Overlay de busca */
+  .search-overlay {
+    top: 150px;
+  }
+
+  .search-results {
+    justify-content: center;
+  }
+}
+
+/* Telas médias (tablets, 768px a 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Ajustes na barra de navegação */
+  nav {
+    padding: 10px 15px;
+  }
+
+  nav img {
+    width: 30px;
+  }
+
+  ul {
+    gap: 20px;
+  }
+
+  .input {
+    width: 25vw;
+  }
+
+  /* Ajustes no carrossel */
+  .carrossel {
+    height: 400px;
+    margin: 80px auto 30px;
+  }
+
+  /* Ajustes nas seções de filmes */
+  h2 {
+    padding: 15px 30px;
+  }
+
+  .movie-row {
+    margin: 0 30px;
+  }
+
+  .card-movie {
+    width: 180px;
+    height: 300px;
+  }
+
+  .card-movie img {
+    height: 250px;
+  }
+
+  /* Modal */
+  .modal-container {
+    height: 70vh;
+  }
+
+  .modal-image {
+    flex: 0 0 30%;
+  }
+}
+
+/* Telas grandes (notebooks e desktops, 1024px a 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Ajustes no carrossel */
+  .carrossel {
+    height: 500px;
+  }
+
+  /* Ajustes nas seções de filmes */
+  .card-movie {
+    width: 190px;
+    height: 320px;
+  }
+
+  .card-movie img {
+    height: 270px;
+  }
+}
+
 

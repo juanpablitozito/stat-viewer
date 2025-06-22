@@ -1,4 +1,57 @@
+// Verifica se é um dispositivo móvel
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
 
+// Ajusta o comportamento do carrossel em dispositivos móveis
+if (isMobileDevice()) {
+  // Altera o intervalo do carrossel para ser mais rápido em móveis
+  clearInterval(carrosselInterval);
+  carrosselInterval = setInterval(avancarSlide, 5000);
+  
+  // Adiciona suporte a swipe para o carrossel
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  const carrossel = document.querySelector('.carrossel');
+  
+  carrossel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+  
+  carrossel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+  
+  function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+      avancarSlide();
+    }
+    if (touchEndX > touchStartX + 50) {
+      voltarSlide();
+    }
+  }
+}
+
+// Ajusta a quantidade de rolagem nos filmes para dispositivos móveis
+function avancarFilmes(type) {
+  const movieRow = document.getElementById(type);
+  const scrollAmount = isMobileDevice() ? 200 : 400;
+  movieRow.scrollBy({
+    left: scrollAmount,
+    behavior: 'smooth'
+  });
+}
+
+function voltarFilmes(type) {
+  const movieRow = document.getElementById(type);
+  const scrollAmount = isMobileDevice() ? 200 : 400;
+  movieRow.scrollBy({
+    left: -scrollAmount,
+    behavior: 'smooth'
+  });
+}
 
 // Variáveis de controle do carrossel
 let indice = 0;  // Índice que vai controlar a posição atual do slide
@@ -368,4 +421,3 @@ document.querySelector('.prev-anime').addEventListener('click', () => {
 document.querySelector('.next-anime').addEventListener('click', () => {
   avancarFilmes('anime');
 });
-
