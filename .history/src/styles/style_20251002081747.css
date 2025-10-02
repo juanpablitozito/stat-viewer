@@ -483,36 +483,13 @@ footer {
   padding: 20px;
   margin-top: 40px;
   box-shadow: var(--sombra);
-  font-size: 16px;
+  font-size: 14px;
   z-index: 10000;
   position: relative;
   width: 100%;
   bottom: 0;
-  border-top: var(--button-color) 1px solid;
+  border-top: var(--button-color) 3px solid;
 }
-
-footer button {
-  background-color: var(--button-color);
-  color: black;
-  font-weight: bold;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 10px;
-  margin: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 5px;
-  box-shadow: var(--sombra);
-  transition: var(--transition);
-}
-footer button:hover {
-  background-color: var(--button-hover-color);
-  box-shadow: 0 4px 15px var(--sombra) ;
-  transform: translateY(-3px);
-}
- 
-
-
 /* ===== CLASSES UTILITÁRIAS ===== */
 .hidden {
   display: none;

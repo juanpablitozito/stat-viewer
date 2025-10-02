@@ -488,7 +488,7 @@ footer {
   position: relative;
   width: 100%;
   bottom: 0;
-  border-top: var(--button-color) 1px solid;
+
 }
 
 footer button {
