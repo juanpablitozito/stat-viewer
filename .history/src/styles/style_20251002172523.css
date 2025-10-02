@@ -495,14 +495,16 @@ footer a {
   
   color: var(--button-color);
   font-weight: bold;
-  font-size: 17px;
+
+ 
+  font-size: 14px;
   cursor: pointer;
   transition: var(--transition);
 }
 footer a:hover {
-  color: var(--button-hover-color);
- 
-  transform: scale(-6px);
+  background-color: var(--button-hover-color);
+  box-shadow: 0 4px 15px var(--sombra) ;
+  transform: translateY(-3px);
 }
   
 
