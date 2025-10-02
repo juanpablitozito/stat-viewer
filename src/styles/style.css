@@ -484,7 +484,7 @@ footer {
   margin-top: 40px;
   box-shadow: var(--sombra);
   font-size: 16px;
-  z-index: 10000;
+  z-index: 1;
   position: relative;
   width: 100%;
   bottom: 0;
@@ -510,7 +510,7 @@ footer button:hover {
   box-shadow: 0 4px 15px var(--sombra) ;
   transform: translateY(-3px);
 }
- 
+  
 
 
 /* ===== CLASSES UTILITÁRIAS ===== */
