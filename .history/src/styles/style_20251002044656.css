@@ -4,7 +4,7 @@
   --accent-color: #a8a8a8;
   --highlight-color: #f7f7f7;
   --button-color: rgba(255, 208, 11, 0.945);
-  --button-hover-color: rgba(250, 203, 14, 0.637);;
+  --button-hover-color: rgba(202, 164, 10, 0.349);;
   --segunda-cor: rgb(77, 0, 0);
   --text-color: #f7f7f7;
   --sombra: rgba(0, 0, 0, 1) 0px 2px 5px;
@@ -392,8 +392,8 @@ section button:hover {
 
 .btn-trailer:hover {
   background-color: var(--button-hover-color);
-  box-shadow: 0 4px 15px var(--sombra) ;
-
+  border: 1px solid white;
+  box-shadow: white 0px 0px 3px;
   cursor: pointer;
   transform: translateY(-3px);
 }

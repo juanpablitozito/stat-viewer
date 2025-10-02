@@ -392,8 +392,8 @@ section button:hover {
 
 .btn-trailer:hover {
   background-color: var(--button-hover-color);
-  box-shadow: 0 4px 15px var(--sombra) ;
-
+  border: 1px solid white;
+ 
   cursor: pointer;
   transform: translateY(-3px);
 }

@@ -3,11 +3,11 @@
   --cor-primaria: #1f1f1f;
   --accent-color: #a8a8a8;
   --highlight-color: #f7f7f7;
-  --button-color: rgba(255, 208, 11, 0.945);
-  --button-hover-color: rgba(250, 203, 14, 0.637);;
+  --button-color: #fffb04f1;
+  --button-hover-color: #fffb04bb;
   --segunda-cor: rgb(77, 0, 0);
   --text-color: #f7f7f7;
-  --sombra: rgba(0, 0, 0, 1) 0px 2px 5px;
+  --sombra: rgba(0, 0, 0, 1) 0px 2px 8px;
   --transition: all 0.3s ease;
 }
 
@@ -369,7 +369,6 @@ section button:hover {
 #modalTitle {
   padding: 0;
   margin: 0;
-  border: none;
 }
 
 #modalRating {
@@ -381,21 +380,17 @@ section button:hover {
 .btn-trailer {
   padding: 10px 20px;
   background-color: var(--button-color);
-  /* border: 1px solid white; */
+  border: 1px solid white;
   border-radius: 1px;
-  font-weight: bold;
-  font-size: 14px;
-  box-shadow: var(--sombra);
-  border-radius:5px ;
+  font: 60000;
   transition: var(--transition);
 }
 
 .btn-trailer:hover {
   background-color: var(--button-hover-color);
-  box-shadow: 0 4px 15px var(--sombra) ;
-
+  border: 1px solid white;
   cursor: pointer;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 h5 {
@@ -421,7 +416,6 @@ h5 {
   right: 15px;
   font-size: 22px;
   cursor: pointer;
-  color: var(--button-color);
 }
 
 hr {
